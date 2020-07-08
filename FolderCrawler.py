@@ -37,24 +37,23 @@ def createDir(path):
 def toNetherite(path):
     with open(path, 'r+') as file:
         lineIndex = -1
+        lines = file.readlines()
+        file.seek(0)
         while True:
             line = file.readline()
+
             lineIndex+=1
             if not line:
                 break
-            elif "minecraft:diamond" in line:
-                print(lineIndex)
-                file.seek(0)
-                lines = file.readlines()
-                print(lines)
+            elif "minecraft:diamond" or ".diamond" in line:
                 lines[lineIndex] = lines[lineIndex].replace("minecraft:diamond", "minecraft:netherite")
-                file.close()
-                open(path, "w").close()
-                file = open(path, 'w')
-                for line in lines:
-                    file.write(line)
-                file.close()
-                break
+                lines[lineIndex] = lines[lineIndex].replace('.diamond', '.netherite')
+    file.close()
+    open(path, 'w').close()
+    file = open(path, 'w')
+    for line in lines:
+        file.write(line)
+    file.close()
 
 
         # print(root + "\\" + fileName +" has diamond")
