@@ -1,5 +1,5 @@
-from FolderCrawler import newItemCreation
+from FolderCrawler import *
 
 
-a = newItemCreation('C:\\Users\\mille\\Downloads\\Minewind-Texture-Pack-master - Copy')
-newItemCreation.find(a)
+root = ('C:\\Users\\mille\\Downloads\\Minewind-Texture-Pack-master - Copy')
+find(root)
